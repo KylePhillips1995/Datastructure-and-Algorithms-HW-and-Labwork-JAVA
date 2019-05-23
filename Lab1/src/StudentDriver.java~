@@ -1,0 +1,39 @@
+
+public class StudentDriver {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+	Address a=new Address("10 main st", "Freehold");
+	Student s1= new Student("Joe", "Namath", 3.5, a);
+	Student s2=new Student(s1);
+	
+	System.out.println(s1);
+	System.out.println(s2);
+	System.out.println("***********  Changes  ****************************");
+	
+	
+	s2.setLastName("Gill");
+	s2.address.setCity("Manalapan");
+	
+	try{
+			s2.setGPA(3);  //Test -2 and then 5 and then 5/0 to prove that the try catch works
+		}
+	catch(IllegalStateException e){System.out.println(e);}	
+	catch(IndexOutOfBoundsException f){System.out.println(f);}	
+	catch (Exception x){System.out.println(x);}
+	
+	
+	System.out.println(s1);
+	System.out.println(s2);
+	
+	//Demonstrate the clone for student which is a substitute for a copy constructor
+	/*	
+		Student s3=s1.clone();
+		s3.address.setCity("Orlando");
+		System.out.println(s1);
+		System.out.println(s3);
+	*/
+	}
+
+}
